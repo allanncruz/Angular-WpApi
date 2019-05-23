@@ -1,10 +1,10 @@
-@import '~font-awesome/css/font-awesome.min.css';
+//@import '~font-awesome/css/font-awesome.min.css';
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
 @import '~node_modules/bootstrap/scss/bootstrap';
 
 
 //Customizar cores via estilo bootstrap
-$primary-color: #ff8712;
+$primary-color: #dd4e4a;
 $secondary-color: #0a283f;
 
 
@@ -32,6 +32,11 @@ $theme-colors:(
 @mixin flex-start-end() {
   @include flex-column;
   align-items: flex-start;
+  justify-content: flex-end;
+}
+@mixin flex-center-end() {
+  @include flex-column;
+  align-items: center;
   justify-content: flex-end;
 }
 

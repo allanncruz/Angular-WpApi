@@ -1,16 +1,16 @@
 <!--Carousel-->
-<div class="carousel-banner-parent">
-    <div id="carousel-banner" class="owl-carousel  sliding p-0 m-0">
-        <div *ngFor="let item of bannerList" class="text-center carousel-banner-internal">
-            <img [src]="getFeaturedImage(item)" class="d-block w-100"/>
-            <div class="img-description">
-                <h2 class="text-red font-weight-bold">{{item.title.rendered}}</h2>
-                <h5 class="text-light font-weight-bold" [innerHTML]="item.content.rendered"></h5>
+<section class="carousel">
+    <div class="carousel-banner-parent">
+        <div *ngFor="let item of bannerList" >
+            <img [src]="getFeaturedImage(item)" class="carousel-image"/>
+            <div class="carousel-legend">
+                <h2>{{item.title.rendered}}</h2>
+                <h5 [innerHTML]="item.content.rendered"></h5>
             </div>
         </div>
     </div>
-    <div class="carousel-banner-background"></div>
-</div>
+</section>
+
 
 <!--Atendimento on-line-->
 <div class="card-atendimento rounded text-center cursor-pointer">
