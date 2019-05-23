@@ -1,0 +1,16 @@
+{
+  "client": {
+    "name": "",
+    "logo": "",
+    "contact": {
+      "phones": {
+        "administrator": "",
+        "general": ""
+      },
+      "emails": {
+        "administrator": "",
+        "general": ""
+      }
+    }
+  }
+}

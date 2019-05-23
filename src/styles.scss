@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+body {
+  font-family: "Montserrat";
+  font-size: 14px;
+}
+
+
+//configuração padrão owl-nav
+.owl-carousel{
+  .owl-nav{
+    button{
+      width: 38px;
+      height: 100%;
+      position: absolute;
+      top: -2rem;
+      outline: none;
+      span{
+        color: #fff;
+        font-size: 3rem;
+        background: #DD4E4A;
+        //padding: 28px 12px;
+        padding: 9px 11px;
+      }
+
+      &.owl-next{
+        right: -4rem;
+        margin-top: 30px;
+      }
+
+      &.owl-prev{
+        left: -4rem;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+.carousel-banner-parent{
+  .owl-nav{
+    position: absolute;
+    right: 14rem;
+    bottom: 4rem;
+    button{
+      position: relative;
+      &.disabled{
+        span{
+          background: transparent;
+        }
+      }
+      span{
+        background: #DD4E4A;
+        padding: 0 12px;
+      }
+    }
+    .owl-prev{
+      left: 0 !important;
+    }
+    .owl-next{
+      right: 0 !important;
+      left: 5px;
+    }
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

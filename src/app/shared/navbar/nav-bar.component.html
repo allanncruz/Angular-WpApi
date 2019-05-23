@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg bg-dark fixed-top" id="nav">
+    <div class="container">
+        <a class="navbar-brand" href="#">Base Angular WpApi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                (click)="toggleNavbar()"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column align-items-end" id="navbarNav">
+            <button type="button" class="text-uppercase btn btn-topo font-weight-bold">
+                <i class="fa fa-lock text-center"></i> Área do Cliente
+            </button>
+            <ul class="navbar-nav justify-content-end text-uppercase font-weight-bold">
+                <li class="nav-item"
+                    *ngFor="let item of menuItems; let count = index"
+                    (click)="onMenuItemClick(count)">
+                    <a pageScroll [pageScrollOffset]="100" [pageScrollInterruptible]="false" [href]="item.href" [routerLink]="'/home'"
+                       class="nav-link" [ngClass]="item.isActive ? 'active' : ''">{{item.name}} <span
+                            class="sr-only" *ngIf="item.isActive">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
