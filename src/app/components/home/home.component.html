@@ -1,0 +1,137 @@
+<!--Carousel-->
+<div class="carousel-banner-parent">
+    <div id="carousel-banner" class="owl-carousel  sliding p-0 m-0">
+        <div *ngFor="let item of bannerList" class="text-center carousel-banner-internal">
+            <img [src]="getFeaturedImage(item)" class="d-block w-100"/>
+            <div class="img-description">
+                <h2 class="text-red font-weight-bold">{{item.title.rendered}}</h2>
+                <h5 class="text-light font-weight-bold" [innerHTML]="item.content.rendered"></h5>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-banner-background"></div>
+</div>
+
+<!--Atendimento on-line-->
+<div class="card-atendimento rounded text-center cursor-pointer">
+    <div class="bg-white card-atendimento-component card-radius-left-top">
+        <i class="fas fa-headset fa-3x text-red text-center"></i>
+    </div>
+    <div class="bg-red card-atendimento-component card-radius-left-bottom">
+        <p class="card-text text-uppercase text-light font-weight-bold">Atendimento <br>online
+        </p>
+    </div>
+</div>
+
+<!--A Empresa-->
+<div class="empresa-jumbotron bg-primary" id="empresa" *ngIf="empresa">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-4 text-uppercase text-red">{{empresa.title?.rendered}}</h1>
+                <p class="lead" [innerHTML]="empresa.content?.rendered"></p>
+            </div>
+            <div class="col-md-6">
+                <img class="w-100" [src]="getFeaturedImage(empresa)"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Serviços-->
+<div class="pading-section bg-secundary" id="servicos">
+
+    <div class="container servicos-jumbotron">
+        <h1 class="display-4 text-uppercase text-light
+     text-center">Serviços</h1>
+        <div id="carousel-servicos" class="owl-carousel">
+            <div *ngFor="let item of servicoList; let i = index" class="item item-middle">
+                <img [src]="getFeaturedImage(item)"/>
+                <div class="carousel-caption bg-red-opacity">
+                    <div class="text-uppercase text-light font-weight-bold">
+                        <div class="font-title">{{item.title.rendered}}<br></div>
+                        <a class="text-light" [routerLink]="'/servicos/' + item.id">Ver mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Novidades-->
+<div class="container novidades-jumbotron bg-primary pading-section" id="novidades">
+    <h1 class="display-4 text-uppercase text-red text-center">Novidades</h1>
+    <div id="carousel-novidades" class="owl-carousel">
+        <div *ngFor="let item of novidadesList; let i = index" class="item item-middle cursor-pointer border">
+            <a [routerLink]="'/novidades/' + item.id">
+                <img [src]="getFeaturedImage(item)"/>
+                <div class="carousel-caption bg-white">
+                    <div class="text-dark">
+                        <div class="font-title">{{item.title.rendered}}</div>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--Clientes-->
+<div class="bg-secundary">
+    <div class="container clientes-jumbotron" id="clientes">
+        <h1 class="display-4 text-uppercase text-light text-center">Clientes</h1>
+
+        <div id="carousel-clientes" class="owl-carousel">
+            <div class="item item-middle zoom-clientes" name="card-cliente" *ngFor="let item of clienteList; let i = index"
+                 (click)="changeCliente(item, i)">
+                <img [src]="getFeaturedImage(item)"/>
+            </div>
+        </div>
+
+        <div class="clientes-caption" *ngIf="tempCliente">
+            <i class="fa fa-4x fa-quote-left pl-4" aria-hidden="true"></i>
+            <h4 class="text-light text-center adjust-clientes adjust-padding-h4" [innerHTML]="tempCliente.content.rendered"></h4>
+            <h5 class="text-light text-center font-weight-bold">{{tempCliente.title.rendered}}</h5>
+            <h6 class="text-red text-center font-weight-bold">{{tempCliente.acf.profissao}}</h6>
+            <i class="fa fa-4x fa-quote-right adjust-clientes float-right pr-4" aria-hidden="true"></i>
+        </div>
+
+    </div>
+</div>
+
+<!--Contato-->
+<div class="contato py-5" id="contato">
+    <div class="container">
+        <h1 class="display-4 text-uppercase text-red">Contato</h1>
+
+        <form action="mailto:ormazabalnascimento@gmail.com" method="post" enctype="text/plain">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="inputNome" class="font-weight-bold">Nome</label>
+                        <input type="text" class="form-control" id="inputNome">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="inputTelefone" class="font-weight-bold">Telefone</label>
+                        <input type="number" class="form-control" id="inputTelefone">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="font-weight-bold">E-mail</label>
+                <input type="email" class="form-control" id="inputEmail">
+            </div>
+            <div class="form-group">
+                <label for="inputMsg" class="font-weight-bold">Mensagem</label>
+                <textarea class="form-control" id="inputMsg" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-enviar bg-red text-light font-weight-bold btn-lg rounded-0">
+                Enviar Mensagem
+            </button>
+        </form>
+    </div>
+</div>
+

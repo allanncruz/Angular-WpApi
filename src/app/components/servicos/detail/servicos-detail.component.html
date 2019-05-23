@@ -1,0 +1,21 @@
+<section *ngIf="servicosDetail" class="offset-nav">
+    <div class="bg-primary pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="display-4 text-uppercase text-center">{{servicosDetail.title?.rendered}}</h1>
+                    <img [src]="getFeaturedImage(servicosDetail)" class="w-50 img-center"/>
+                    <p class="lead text-justify" [innerHTML]="servicosDetail.content?.rendered"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section *ngIf="isLoading" class="offset-nav">
+    <h5 class="text-center p-2">CARREGANDO</h5>
+</section>
+
+
+
+

@@ -1,0 +1,17 @@
+.internal-tours {
+  padding-top: 12rem;
+  .tour {
+    background-color: #fafafa;
+    padding: 18px;
+    border-radius: 20px;
+
+    div {
+      /deep/ .gallery-item {
+        img {
+          width: 100% !important;
+          height: auto !important;
+        }
+      }
+    }
+  }
+}
