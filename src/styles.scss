@@ -1,70 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.css';
-@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~src/assets/styles/customized';
 
 body {
-  font-family: "Montserrat";
-  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  background: #f9f9f9;
 }
 
 
-//configuração padrão owl-nav
-.owl-carousel{
-  .owl-nav{
-    button{
-      width: 38px;
-      height: 100%;
-      position: absolute;
-      top: -2rem;
-      outline: none;
-      span{
-        color: #fff;
-        font-size: 3rem;
-        background: #DD4E4A;
-        //padding: 28px 12px;
-        padding: 9px 11px;
-      }
+//Nanbar
+.single-nav {
+  .navbar {
+    position: relative !important;
+    background: linear-gradient(#28507a 73%, rgba(0, 0, 0, 0) 50%);
+  }
+}
+.navbar-dark{
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(
+                  rgba($secondary-color,1),
+                  rgba($secondary-color,0));
 
-      &.owl-next{
-        right: -4rem;
-        margin-top: 30px;
-      }
+  .navbar-collapse{
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .navbar-nav {
+    .nav-link{
+      color: $white;
+      font-weight: 600;
 
-      &.owl-prev{
-        left: -4rem;
-        margin-top: 30px;
+      &:hover, &.active{
+        color: $primary-color;
       }
     }
   }
 }
 
-.carousel-banner-parent{
-  .owl-nav{
+//Carousel
+.carousel {
+  padding: 0 !important;
+  .carousel-image {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+  .carousel-legend {
     position: absolute;
-    right: 14rem;
-    bottom: 4rem;
-    button{
-      position: relative;
-      &.disabled{
-        span{
-          background: transparent;
-        }
-      }
-      span{
-        background: #DD4E4A;
-        padding: 0 12px;
-      }
+    bottom: 250px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    text-align: left;
+
+
+    @include flex-start-end;
+    color: $white;
+  }
+  .carousel-legend-box{
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    padding: 15px 25px;
+    &:before{
+      @include before-default;
+      background: $primary-color;
+      width: 3px;
+      height: 100%;
     }
-    .owl-prev{
-      left: 0 !important;
+    .carousel-legend_title{
+      text-transform: uppercase;
+      font-weight: 700;
     }
-    .owl-next{
-      right: 0 !important;
-      left: 5px;
+    .carousel-legend_text{
+      font-size: 20px;
     }
   }
-}
-
-.cursor-pointer {
-  cursor: pointer;
 }

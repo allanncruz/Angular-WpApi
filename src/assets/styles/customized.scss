@@ -1,0 +1,43 @@
+@import '~font-awesome/css/font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap');
+@import '~node_modules/bootstrap/scss/bootstrap';
+
+
+//Customizar cores via estilo bootstrap
+$primary-color: #ff8712;
+$secondary-color: #0a283f;
+
+
+$theme-colors:(
+        "primary-color": $primary-color,
+        "secondary-color": $secondary-color,
+);
+.btn-primary {
+  text-transform: uppercase;
+  @include button-variant(
+                  $primary-color,
+                  darken($primary-color, 7.5%),
+                  darken($primary-color, 10%),
+                  lighten($primary-color,5%),
+                  lighten($primary-color, 10%),
+                  darken($primary-color,30%));
+}
+
+
+// SASS mixins personalizados
+@mixin flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-start-end() {
+  @include flex-column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+@mixin before-default() {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
