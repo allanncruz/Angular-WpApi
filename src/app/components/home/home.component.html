@@ -1,6 +1,6 @@
 <!--Carousel-->
 <section class="carousel">
-    <div class="carousel-banner-parent">
+    <div id="carousel-banner-parent" class="carousel-inner owl-carousel">
         <div *ngFor="let item of bannerList" >
             <img [src]="getFeaturedImage(item)" class="carousel-image"/>
             <div class="carousel-legend">
@@ -10,18 +10,6 @@
         </div>
     </div>
 </section>
-
-
-<!--Atendimento on-line-->
-<div class="card-atendimento rounded text-center cursor-pointer">
-    <div class="bg-white card-atendimento-component card-radius-left-top">
-        <i class="fas fa-headset fa-3x text-red text-center"></i>
-    </div>
-    <div class="bg-red card-atendimento-component card-radius-left-bottom">
-        <p class="card-text text-uppercase text-light font-weight-bold">Atendimento <br>online
-        </p>
-    </div>
-</div>
 
 <!--A Empresa-->
 <div class="empresa-jumbotron bg-primary" id="empresa" *ngIf="empresa">

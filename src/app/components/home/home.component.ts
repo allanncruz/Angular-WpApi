@@ -237,7 +237,7 @@ export class HomeComponent implements OnInit {
     }
 
     initCarouselBanner() {
-        $('.carousel-banner-parent').owlCarousel({
+        $('#carousel-banner-parent').owlCarousel({
 
             autoPlay: 3000,
             items: 1,
