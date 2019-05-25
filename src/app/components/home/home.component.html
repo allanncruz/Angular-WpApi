@@ -28,19 +28,20 @@
 </div>
 
 <!--Serviços-->
-<div class="pading-section bg-secundary" id="servicos">
+<div class="services py-5">
+    <div class="container">
+        <h1 class="services-title title">Serviços</h1>
+        <div id="carousel-servicos" class="carousel-inner owl-carousel">
+            <div class="services-item py-2"
+                 *ngFor="let item of servicoList; let i = index">
 
-    <div class="container servicos-jumbotron">
-        <h1 class="display-4 text-uppercase text-light
-     text-center">Serviços</h1>
-        <div id="carousel-servicos" class="owl-carousel">
-            <div *ngFor="let item of servicoList; let i = index" class="item item-middle">
-                <img [src]="getFeaturedImage(item)"/>
-                <div class="carousel-caption bg-red-opacity">
-                    <div class="text-uppercase text-light font-weight-bold">
-                        <div class="font-title">{{item.title.rendered}}<br></div>
-                        <a class="text-light" [routerLink]="'/servicos/' + item.id">Ver mais</a>
-                    </div>
+                <img class="px-3"
+                     [src]="getFeaturedImage(item)" />
+
+                <div class="services-legend">
+                    <h4>{{item.title.rendered}}</h4>
+                    <button type="button" class="btn btn-primary btn-sm"
+                            [routerLink]="'/servicos/' + item.id">Ver mais</button>
                 </div>
             </div>
         </div>

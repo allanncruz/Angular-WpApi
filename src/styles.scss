@@ -74,6 +74,20 @@ body {
   }
 }
 
+//Servicos
+
+.services {
+  background-image: url("/assets/img/bg-secundary.png");
+  .services-title{
+    color: $white;
+  }
+  .services-legend {
+    height: 100px;
+    color: $white;
+    text-align: center;
+  }
+}
+
 //Contents
 .title{
   text-transform: uppercase;
