@@ -74,17 +74,27 @@ body {
   }
 }
 
-//Servicos
+//Lista padrão de cards
+.cards-item{
+  .cards-legend {
+    height: 100px;
+    color: $white;
+    text-align: center;
+  }
+}
 
+//Servicos
 .services {
   background-image: url("/assets/img/bg-secundary.png");
   .services-title{
     color: $white;
   }
-  .services-legend {
-    height: 100px;
-    color: $white;
-    text-align: center;
+}
+//Novidades
+.news {
+  background-image: url("/assets/img/bg-primary.png");
+  .news-title{
+    color: $dark;
   }
 }
 

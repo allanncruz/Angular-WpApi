@@ -32,13 +32,13 @@
     <div class="container">
         <h1 class="services-title title">Serviços</h1>
         <div id="carousel-servicos" class="carousel-inner owl-carousel">
-            <div class="services-item py-2"
+            <div class="cards-item py-2"
                  *ngFor="let item of servicoList; let i = index">
 
                 <img class="px-3"
                      [src]="getFeaturedImage(item)" />
 
-                <div class="services-legend">
+                <div class="cards-legend">
                     <h4>{{item.title.rendered}}</h4>
                     <button type="button" class="btn btn-primary btn-sm"
                             [routerLink]="'/servicos/' + item.id">Ver mais</button>
@@ -48,23 +48,27 @@
     </div>
 </div>
 
-<!--Novidades-->
-<div class="container novidades-jumbotron bg-primary pading-section" id="novidades">
-    <h1 class="display-4 text-uppercase text-red text-center">Novidades</h1>
-    <div id="carousel-novidades" class="owl-carousel">
-        <div *ngFor="let item of novidadesList; let i = index" class="item item-middle cursor-pointer border">
-            <a [routerLink]="'/novidades/' + item.id">
-                <img [src]="getFeaturedImage(item)"/>
-                <div class="carousel-caption bg-white">
-                    <div class="text-dark">
-                        <div class="font-title">{{item.title.rendered}}</div>
-                    </div>
-                </div>
+<!--Serviços-->
+<div class="news py-5">
+    <div class="container">
+        <h1 class="news title">Novidades</h1>
+        <div id="carousel-novidades" class="carousel-inner owl-carousel">
+            <div class="cards-item py-2"
+                 *ngFor="let item of novidadesList; let i = index">
 
-            </a>
+                <img class="px-3"
+                     [src]="getFeaturedImage(item)" />
+
+                <div class="cards-legend">
+                    <h4>{{item.title.rendered}}</h4>
+                    <button type="button" class="btn btn-primary btn-sm"
+                            [routerLink]="'/novidades/' + item.id">Ver mais</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 <!--Clientes-->
 <div class="bg-secundary">
