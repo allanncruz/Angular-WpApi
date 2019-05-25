@@ -12,7 +12,7 @@ import {IResourceMethod, ResourceAction, ResourceParams} from '@ngx-resource/cor
 })
 export class EmpresaService extends BaseService {
     @ResourceAction({
-        path: '/5',
+        path: '/11',
         params: {'_embed': true}
     })
     getEmpresa: IResourceMethod<any, any>;

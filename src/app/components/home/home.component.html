@@ -12,15 +12,16 @@
 </section>
 
 <!--A Empresa-->
-<div class="empresa-jumbotron bg-primary" id="empresa" *ngIf="empresa">
+<div class="empresa py-5" *ngIf="empresa">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="display-4 text-uppercase text-red">{{empresa.title?.rendered}}</h1>
+                <h1 class="title">{{empresa.title?.rendered}}</h1>
                 <p class="lead" [innerHTML]="empresa.content?.rendered"></p>
+                <button type="button" class="btn btn-primary">Ver mais</button>
             </div>
             <div class="col-md-6">
-                <img class="w-100" [src]="getFeaturedImage(empresa)"/>
+                <img class="img-thumbnail" [src]="getFeaturedImage(empresa)"/>
             </div>
         </div>
     </div>
