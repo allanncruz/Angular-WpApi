@@ -5,7 +5,6 @@ import {ServicoService} from '../../core/api/servico/client.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {NovidadesService} from '../../core/api/novidades/client.service';
 import {BannerService} from '../../core/api/banner/client.service';
-import {ClienteService} from '../../core/api/cliente/client.service';
 import {ContatoService} from '../../core/api/contato/client.service';
 import {EmpresaService} from '../../core/api/empresa/client.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -36,7 +35,6 @@ export class HomeComponent implements OnInit {
                 private servicoService: ServicoService,
                 private novidadesService: NovidadesService,
                 private bannerService: BannerService,
-                private clienteService: ClienteService,
                 private contatoService: ContatoService,
                 private empresaService: EmpresaService,
                 private route: ActivatedRoute,
@@ -77,18 +75,6 @@ export class HomeComponent implements OnInit {
             }, 500);
         });
 
-        this.clienteList = [];
-        this.clienteService.query().then((response: any[]) => {
-            for (let item of response) {
-                item.content.rendered = this.sanitizer.bypassSecurityTrustHtml(item.content.rendered);
-            }
-            this.clienteList = response;
-            this.tempCliente = this.clienteList[0];
-            setTimeout(() => {
-                this.initCarouselCliente();
-            }, 500);
-        });
-
 
         this.contato = [];
         this.contatoService.getContato().then((response: any) => {
@@ -119,16 +105,6 @@ export class HomeComponent implements OnInit {
         this.pageScrollService.scroll({
             document: this.document
         });
-    }
-
-    changeCliente(cliente, pos) {
-        this.tempCliente = cliente;
-
-        var ele = document.getElementsByName('card-cliente');
-        for (let i = 0; i < ele.length; i++) {
-            ele[i].classList.remove('zoom-clientes-active');
-        }
-        ele[pos].classList.add('zoom-clientes-active');
     }
 
     loadMap() {
@@ -247,28 +223,6 @@ export class HomeComponent implements OnInit {
                     nav: true
                 },
                 0: {
-                    nav: false
-                }
-            }
-        });
-    }
-
-    initCarouselCliente() {
-        $('#carousel-clientes').owlCarousel({
-
-            autoPlay: 3000,
-            responsiveClass: true,
-            responsive: {
-                992: {
-                    items: 6,
-                    nav: true
-                },
-                667: {
-                    items: 3,
-                    nav: true
-                },
-                0: {
-                    items: 1,
                     nav: false
                 }
             }

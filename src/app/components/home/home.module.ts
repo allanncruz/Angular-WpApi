@@ -5,7 +5,6 @@ import {RouterModule, Routes} from '@angular/router';
 import {ServicoService} from '../../core/api/servico/client.service';
 import {NovidadesService} from '../../core/api/novidades/client.service';
 import {BannerService} from '../../core/api/banner/client.service';
-import {ClienteService} from '../../core/api/cliente/client.service';
 import {ContatoService} from '../../core/api/contato/client.service';
 import {EmpresaService} from '../../core/api/empresa/client.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -32,7 +31,6 @@ const homeRoutes: Routes = [
     ServicoService,
     NovidadesService,
     BannerService,
-    ClienteService,
     ContatoService,
     EmpresaService,
     FormsModule,

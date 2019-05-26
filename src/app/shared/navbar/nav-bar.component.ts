@@ -33,11 +33,6 @@ export class NavBarComponent implements OnInit {
                 isActive: false
             },
             {
-                href: '#clientes',
-                name: 'Clientes',
-                isActive: false
-            },
-            {
                 href: '#contato',
                 name: 'Contato',
                 isActive: false

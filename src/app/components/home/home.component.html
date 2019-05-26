@@ -69,30 +69,6 @@
     </div>
 </div>
 
-
-<!--Clientes-->
-<div class="bg-secundary">
-    <div class="container clientes-jumbotron" id="clientes">
-        <h1 class="display-4 text-uppercase text-light text-center">Clientes</h1>
-
-        <div id="carousel-clientes" class="owl-carousel">
-            <div class="item item-middle zoom-clientes" name="card-cliente" *ngFor="let item of clienteList; let i = index"
-                 (click)="changeCliente(item, i)">
-                <img [src]="getFeaturedImage(item)"/>
-            </div>
-        </div>
-
-        <div class="clientes-caption" *ngIf="tempCliente">
-            <i class="fa fa-4x fa-quote-left pl-4" aria-hidden="true"></i>
-            <h4 class="text-light text-center adjust-clientes adjust-padding-h4" [innerHTML]="tempCliente.content.rendered"></h4>
-            <h5 class="text-light text-center font-weight-bold">{{tempCliente.title.rendered}}</h5>
-            <h6 class="text-red text-center font-weight-bold">{{tempCliente.acf.profissao}}</h6>
-            <i class="fa fa-4x fa-quote-right adjust-clientes float-right pr-4" aria-hidden="true"></i>
-        </div>
-
-    </div>
-</div>
-
 <!--Contato-->
 <div class="contato py-5" id="contato">
     <div class="container">
