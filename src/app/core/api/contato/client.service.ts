@@ -12,7 +12,7 @@ import {IResourceMethod, ResourceAction, ResourceParams, ResourceRequestMethod} 
 })
 export class ContatoService extends BaseService {
     @ResourceAction({
-        path: '/29',
+        path: '/22',
         params: {'_embed': true}
     })
     getContato: IResourceMethod<any, any>;

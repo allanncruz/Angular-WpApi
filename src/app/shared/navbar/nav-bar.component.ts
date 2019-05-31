@@ -23,7 +23,7 @@ export class NavBarComponent implements OnInit {
                 isActive: false
             },
             {
-                href: '#novidades',
+                href: '/novidades',
                 name: 'Novidades',
                 isActive: false
             },

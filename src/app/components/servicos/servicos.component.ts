@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {NovidadesService} from '../../core/api/novidades/client.service';
 import {ServicoService} from '../../core/api/servico/client.service';
 
 declare var $;
@@ -19,7 +18,6 @@ export class ServicosComponent implements OnInit {
 
     ngOnInit() {
         this.servicosService.query().then((res: any) => {
-            console.log('res', res);
             if (res.body) {
                 this.servicosList = res.body;
             }

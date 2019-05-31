@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   constructor(private getConf: HttpClient,
               private clientHelper: ClientHelper) {
     this.clientHelper.clientConf.subscribe((nextValue: any) => {
-      console.log('nextValue', nextValue);
     });
   }
 

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
-import {NovidadesService} from '../../../core/api/novidades/client.service';
 import {ServicoService} from '../../../core/api/servico/client.service';
 declare var $: any;
 
@@ -28,7 +27,6 @@ export class ServicosDetailComponent implements OnInit {
   ngOnInit() {
     this.servicosService.get({id: this.servicosId}).then(res => {
       this.servicosDetail = res;
-      console.log(this.servicosDetail);
       this.servicosDetail.content.rendered = this.sanitizer.bypassSecurityTrustHtml(this.servicosDetail.content.rendered);
       this.isLoading = false;
       setTimeout(() => {
