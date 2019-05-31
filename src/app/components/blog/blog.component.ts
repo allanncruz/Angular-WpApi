@@ -23,7 +23,7 @@ export class BlogComponent implements OnInit {
     ngOnInit() {
         this.blogService.getPage().then((res: any) => {
             if (res) {
-                this.pageBlog= res;
+                this.pageBlog = res;
                 this.pageBlog.content.rendered = this.sanitizer.bypassSecurityTrustHtml(this.pageBlog.content.rendered);
             }
             setTimeout(() => {
@@ -44,7 +44,9 @@ export class BlogComponent implements OnInit {
     }
 
     getInterviewsFeaturedImage(blg) {
-        return blg['_embedded'] ? blg['_embedded']['wp:featuredmedia'][0]['source_url'] : 'assets/img/no-img.jpg';
+        if (blg && blg['_embedded'] && blg['_embedded']['wp:featuredmedia'] && blg['_embedded']['wp:featuredmedia'][0]) {
+            return blg['_embedded']['wp:featuredmedia'][0]['source_url'];
+        }
     }
 
     updateGallery() {
