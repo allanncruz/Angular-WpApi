@@ -108,4 +108,14 @@ body {
 //Páginas internas
 .content-area{
   margin: 3rem 0;
+
+  .single-thumb{
+    float: right;
+    width: 550px;
+    height: 350px;
+    object-fit: cover;
+    margin: 1rem 0 2rem 2rem;
+    border-radius: .4rem;
+    box-shadow: 13px 13px 12px rgba(0,0,0,0.2);
+  }
 }

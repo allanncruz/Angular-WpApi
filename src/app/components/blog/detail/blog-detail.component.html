@@ -1,16 +1,12 @@
-<section *ngIf="novidadesDetail" class="offset-nav">
-    <div class="bg-primary pt-5 pb-5">
+<div *ngIf="blogDetail">
+    <div class="content-area">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="display-4 text-uppercase text-center">{{novidadesDetail.title?.rendered}}</h1>
-                    <img [src]="getFeaturedImage(novidadesDetail)" class="w-50 img-center"/>
-                    <p class="lead text-justify" [innerHTML]="novidadesDetail.content?.rendered"></p>
-                </div>
-            </div>
+            <h1 class="title">{{blogDetail.title?.rendered}}</h1>
+            <img [src]="getFeaturedImage(blogDetail)" class="single-thumb"/>
+            <p class="lead text-justify" [innerHTML]="blogDetail.content?.rendered"></p>
         </div>
     </div>
-</section>
+</div>
 
 <section *ngIf="isLoading" class="offset-nav">
     <h5 class="text-center p-2">CARREGANDO</h5>
