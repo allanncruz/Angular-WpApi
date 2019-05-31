@@ -3,7 +3,7 @@ import {PageScrollService} from 'ngx-page-scroll-core';
 import {DOCUMENT} from '@angular/common';
 import {ServicoService} from '../../core/api/servico/client.service';
 import {DomSanitizer} from '@angular/platform-browser';
-import {NovidadesService} from '../../core/api/novidades/client.service';
+import {BlogService} from '../../core/api/blog/client.service';
 import {BannerService} from '../../core/api/banner/client.service';
 import {ContatoService} from '../../core/api/contato/client.service';
 import {EmpresaService} from '../../core/api/empresa/client.service';
@@ -21,19 +21,16 @@ declare let L;
 export class HomeComponent implements OnInit {
     public servicoList;
     public socialList;
-    public novidadesList;
-    public clienteList;
+    public blogList;
     public contato;
     public empresa;
-
-    public tempCliente;
 
     public bannerList: any[];
     public newsForm: FormGroup;
 
     constructor(private pageScrollService: PageScrollService,
                 private servicoService: ServicoService,
-                private novidadesService: NovidadesService,
+                private blogService: BlogService,
                 private bannerService: BannerService,
                 private contatoService: ContatoService,
                 private empresaService: EmpresaService,
@@ -53,12 +50,12 @@ export class HomeComponent implements OnInit {
             }, 500);
         });
 
-        this.novidadesList = [];
-        this.novidadesService.query().then((response: any[]) => {
+        this.blogList = [];
+        this.blogService.query().then((response: any[]) => {
             for (let item of response) {
                 item.content.rendered = this.sanitizer.bypassSecurityTrustHtml(item.content.rendered);
             }
-            this.novidadesList = response;
+            this.blogList = response;
             setTimeout(() => {
                 this.initCarouselNovidades();
             }, 500);
@@ -80,9 +77,6 @@ export class HomeComponent implements OnInit {
         this.contatoService.getContato().then((response: any) => {
             response.content.rendered = this.sanitizer.bypassSecurityTrustHtml(response.content.rendered);
             this.contato = response;
-            setTimeout(() => {
-                this.loadMap();
-            }, 500);
         });
 
         this.empresa = [];
@@ -107,65 +101,7 @@ export class HomeComponent implements OnInit {
         });
     }
 
-    loadMap() {
-        var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap' +
-                    '</a> contributors, Points &copy 2012 LINZ'
-            }),
-            latlng = L.latLng(-5.8150218, -35.2148318);
-
-        var map = L.map('map', {center: latlng, zoom: 15, layers: [tiles]});
-
-        var customIcon = L.icon({
-            iconUrl: 'assets/img/map-marker.png',
-
-            iconSize: [48, 48], // tamanho do icone
-            iconAnchor: [10, 50], // ponto do ícone que irá corresponder à localização do marcador
-            popupAnchor: [10, -60] // ponto a partir do qual o pop-up deve abrir em relação ao iconAnchor
-        });
-
-        var markers = [
-            {
-                'name': 'Celso e Harllington',
-                'url': 'https://www.google.com/maps/place/CHC+Contadores+Associados/@-5.8150218,-35.2148318,15z/data=' +
-                    '!4m5!3m4!1s0x0:0xd278f49b961eef38!8m2!3d-5.8150218!4d-35.2148318',
-                'lat': -5.8150218,
-                'lng': -35.2148318
-            },
-        ];
-
-        for (var i = 0; i < markers.length; i++) {
-            var markerInfo = markers[i];
-            var htmlContext = '<a href="' + markerInfo.url + '" target="_blank">' + markerInfo.name + '</a>';
-            var popup = L.popup()
-                .setContent(htmlContext);
-            var marker = L.marker([markerInfo.lat, markerInfo.lng], {icon: customIcon});
-            marker.bindPopup(popup);
-            marker.addTo(map);
-        }
-        map.addLayer(markers);
-    }
-
-    openServico(item) {
-        window.open(item.link, '_blank');
-    }
-
-    openNovidades(item) {
-        window.open(item.link, '_blank');
-    }
-
-    openBanner(item) {
-        window.open(item.link, '_blank');
-    }
-
-    openCliente(item) {
-        window.open(item.link, '_blank');
-    }
-
-    openEmpresa(item) {
-        window.open(item.link, '_blank');
-    }
+    
 
     initCarouselServicos() {
         $('#carousel-servicos').owlCarousel({
@@ -191,7 +127,7 @@ export class HomeComponent implements OnInit {
     }
 
     initCarouselNovidades() {
-        $('#carousel-novidades').owlCarousel({
+        $('#carousel-blog').owlCarousel({
 
             autoPlay: 3000,
             responsiveClass: true,
@@ -232,8 +168,6 @@ export class HomeComponent implements OnInit {
     getFeaturedImage(item) {
         if (item && item['_embedded'] && item['_embedded']['wp:featuredmedia'] && item['_embedded']['wp:featuredmedia'][0]) {
             return item['_embedded']['wp:featuredmedia'][0]['source_url'];
-        } else {
-            return 'assets/img/no-img.jpg';
         }
     }
 }

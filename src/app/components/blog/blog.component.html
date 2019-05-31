@@ -1,0 +1,24 @@
+<div *ngIf="!isLoading">
+    <section class="content-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="box-container text-center">
+                        <h2 class="title" [innerHTML]='pageBlog?.title.rendered'></h2>
+                        <div class="box-container-legend" [innerHTML]='pageBlog?.content.rendered'></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="carousel-projetos-item" *ngFor="let blg of blogPosts" [routerLink]="'/blog/' + blg.id">
+                        <div class="carousel-projetos-img"
+                             [style.backgroundImage]="'url('+ getInterviewsFeaturedImage(blg) +')'"></div>
+                        <div class="carousel-projetos-content"
+                             [innerHTML]="blg.title.rendered"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

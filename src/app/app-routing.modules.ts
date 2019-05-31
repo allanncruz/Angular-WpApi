@@ -15,8 +15,8 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
-    path: 'novidades',
-    loadChildren: './components/novidades/novidades.module#NovidadesModule',
+    path: 'blog',
+    loadChildren: './components/blog/blog.module#BlogModule',
     runGuardsAndResolvers: 'always'
   },
   {

@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {NovidadesDetailComponent} from './novidades-detail.component';
+import {BlogDetailComponent} from './blog-detail.component';
 import {RouterModule, Routes} from '@angular/router';
-import {NovidadesService} from '../../../core/api/novidades/client.service';
+import {BlogService} from '../../../core/api/blog/client.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: NovidadesDetailComponent
+    component: BlogDetailComponent
   }
 ];
 
@@ -19,11 +19,11 @@ const routes: Routes = [
     )
   ],
   declarations: [
-    NovidadesDetailComponent
+    BlogDetailComponent
   ],
   providers: [
-    NovidadesService
+    BlogService
   ]
 })
-export class NovidadesDetailModule {
+export class BlogDetailModule {
 }
