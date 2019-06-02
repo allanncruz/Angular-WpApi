@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'servicos',
-    loadChildren: './components/servicos/servicos.module#ServicosModule',
+    loadChildren: './components/services/services.module#ServicesModule',
     runGuardsAndResolvers: 'always'
   },
 ];

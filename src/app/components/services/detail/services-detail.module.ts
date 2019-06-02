@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {ServicesDetailComponent} from './services-detail.component';
 import {RouterModule, Routes} from '@angular/router';
-import {ServicosDetailComponent} from './servicos-detail.component';
-import {ServicoService} from '../../../core/api/servico/client.service';
+import {BlogService} from '../../../core/api/blog/client.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: ServicosDetailComponent
+    component: ServicesDetailComponent
   }
 ];
 
@@ -19,11 +19,11 @@ const routes: Routes = [
     )
   ],
   declarations: [
-    ServicosDetailComponent
+    ServicesDetailComponent
   ],
   providers: [
-    ServicoService
+    BlogService
   ]
 })
-export class ServicosDetailModule {
+export class ServicesDetailModule {
 }

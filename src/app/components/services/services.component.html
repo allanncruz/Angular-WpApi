@@ -1,0 +1,22 @@
+<div *ngIf="!isLoading">
+    <div class="content-area">
+        <div class="container">
+            <h1 class="title" [innerHTML]='pageServices?.title.rendered'></h1>
+            <div [innerHTML]='pageServices?.content.rendered'></div>
+
+
+            <div class="row">
+                <div class="col-md-4" *ngFor="let blg of servicesPosts" [routerLink]="'/servicos/' + blg.id">
+                    <div class="card">
+                        <img class="card-img-top"
+                             [src]="getInterviewsFeaturedImage(blg)"
+                             alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text" [innerHTML]="blg.title.rendered"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

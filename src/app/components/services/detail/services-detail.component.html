@@ -1,0 +1,13 @@
+<div *ngIf="blogDetail">
+    <div class="content-area">
+        <div class="container">
+            <h1 class="title">{{blogDetail.title?.rendered}}</h1>
+            <img [src]="getFeaturedImage(blogDetail)" class="single-thumb"/>
+            <p class="lead text-justify" [innerHTML]="blogDetail.content?.rendered"></p>
+        </div>
+    </div>
+</div>
+
+<section *ngIf="isLoading" class="offset-nav">
+    <h5 class="text-center p-2">CARREGANDO</h5>
+</section>
