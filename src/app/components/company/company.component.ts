@@ -33,11 +33,14 @@ export class CompanyComponent implements OnInit {
         });
     }
 
+    getFeaturedImage() {
+        return this.pageCompany['_embedded'] ? this.pageCompany['_embedded']['wp:featuredmedia'][0]['source_url'] : 'assets/img/no-img.jpg';
+    }
+
     updateGallery() {
         setTimeout(() => {
             $('.blocks-gallery-item figure a').attr('rel', 'galeria');
             $('.blocks-gallery-item figure  a').fancybox();
         }, 100);
     }
-
 }
