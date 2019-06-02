@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ServicesDetailComponent} from './services-detail.component';
 import {RouterModule, Routes} from '@angular/router';
-import {BlogService} from '../../../core/api/blog/client.service';
+import {ServicesService} from '../../../core/api/services/client.service';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
     ServicesDetailComponent
   ],
   providers: [
-    BlogService
+    ServicesService
   ]
 })
 export class ServicesDetailModule {

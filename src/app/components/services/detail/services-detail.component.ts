@@ -1,33 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
-import {BlogService} from '../../../core/api/blog/client.service';
+import {ServicesService} from '../../../core/api/services/client.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-blog-detail-page',
+  selector: 'app-services-detail-page',
   templateUrl: './services-detail.component.html',
   styleUrls: ['./services-detail.component.scss']
 })
 export class ServicesDetailComponent implements OnInit {
-  public blogDetail: any;
-  public blogId: any;
+  public servicesDetail: any;
+  public servicesId: any;
 
   public isLoading: boolean;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private blogService: BlogService,
+              private servicesService: ServicesService,
               private sanitizer: DomSanitizer) {
-    this.blogId = this.route.snapshot.paramMap.get('id');
-    this.blogDetail = null;
+    this.servicesId = this.route.snapshot.paramMap.get('id');
+    this.servicesDetail = null;
     this.isLoading = true;
   }
 
   ngOnInit() {
-    this.blogService.get({id: this.blogId}).then(res => {
-      this.blogDetail = res;
-      this.blogDetail.content.rendered = this.sanitizer.bypassSecurityTrustHtml(this.blogDetail.content.rendered);
+    this.servicesService.get({id: this.servicesId}).then(res => {
+      this.servicesDetail = res;
+      this.servicesDetail.content.rendered = this.sanitizer.bypassSecurityTrustHtml(this.servicesDetail.content.rendered);
       this.isLoading = false;
       setTimeout(() => {
         $('.blocks-gallery-item figure a').attr('rel', 'galeria');
@@ -38,6 +38,6 @@ export class ServicesDetailComponent implements OnInit {
   }
 
   getFeaturedImage() {
-    return this.blogDetail['_embedded'] ? this.blogDetail['_embedded']['wp:featuredmedia'][0]['source_url'] : 'assets/img/no-img.jpg';
+    return this.servicesDetail['_embedded'] ? this.servicesDetail['_embedded']['wp:featuredmedia'][0]['source_url'] : 'assets/img/no-img.jpg';
   }
 }

@@ -1,9 +1,9 @@
-<div *ngIf="blogDetail">
+<div *ngIf="servicesDetail">
     <div class="content-area">
         <div class="container">
-            <h1 class="title">{{blogDetail.title?.rendered}}</h1>
-            <img [src]="getFeaturedImage(blogDetail)" class="single-thumb"/>
-            <p class="lead text-justify" [innerHTML]="blogDetail.content?.rendered"></p>
+            <h1 class="title">{{servicesDetail.title?.rendered}}</h1>
+            <img [src]="getFeaturedImage(servicesDetail)" class="single-thumb"/>
+            <p class="lead text-justify" [innerHTML]="servicesDetail.content?.rendered"></p>
         </div>
     </div>
 </div>
