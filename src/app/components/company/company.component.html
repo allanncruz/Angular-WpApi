@@ -1,0 +1,9 @@
+<div *ngIf="!isLoading">
+    <div class="content-area">
+        <div class="container">
+            <h1 class="title" [innerHTML]='pageCompany?.title.rendered'></h1>
+            <div [innerHTML]='pageCompany?.content.rendered'></div>
+
+        </div>
+    </div>
+</div>
