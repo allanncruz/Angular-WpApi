@@ -8,37 +8,6 @@ declare var $;
     styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-    menuItems: any[] = [];
-
-    constructor() {
-        this.menuItems = [
-            {
-                href: '#empresa',
-                name: 'A Empresa',
-                isActive: true
-            },
-            {
-                href: '#servicos',
-                name: 'Serviços',
-                isActive: false
-            },
-            {
-                href: '/novidades',
-                name: 'Novidades',
-                isActive: false
-            },
-            {
-                href: '#parceiros',
-                name: 'Parceiros',
-                isActive: false
-            },
-            {
-                href: '#contato',
-                name: 'Contato',
-                isActive: false
-            }
-        ];
-    }
 
     ngOnInit() {
         setTimeout(() => {
@@ -72,12 +41,5 @@ export class NavBarComponent implements OnInit {
 
     toggleNavbar() {
 
-    }
-
-    onMenuItemClick(itemPosition) {
-        this.menuItems.map((item) => {
-            item.isActive = false;
-        });
-        this.menuItems[itemPosition].isActive = true;
     }
 }

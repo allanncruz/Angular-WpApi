@@ -12,12 +12,20 @@
                 <i class="fa fa-lock text-center"></i> Área do Cliente
             </button>
             <ul class="navbar-nav justify-content-end text-uppercase font-weight-bold">
-                <li class="nav-item"
-                    *ngFor="let item of menuItems; let count = index"
-                    (click)="onMenuItemClick(count)">
-                    <a pageScroll [pageScrollOffset]="100" [pageScrollInterruptible]="false" [href]="item.href" [routerLink]="'/home'"
-                       class="nav-link" [ngClass]="item.isActive ? 'active' : ''">{{item.name}} <span
-                            class="sr-only" *ngIf="item.isActive">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/empresa">A Empresa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/servicos">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/novidades">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contato">Contato</a>
                 </li>
             </ul>
         </div>
