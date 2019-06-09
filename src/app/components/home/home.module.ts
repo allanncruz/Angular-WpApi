@@ -8,6 +8,7 @@ import {BannerService} from '../../core/api/banner/client.service';
 import {ContatoService} from '../../core/api/contato/client.service';
 import {EmpresaService} from '../../core/api/empresa/client.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 
 const homeRoutes: Routes = [
@@ -22,7 +23,10 @@ const homeRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(
       homeRoutes,
-    )
+    ),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDsyaom16QocCUTnqUbC84R9Q7H-baGMrI'
+    })
   ],
   declarations: [
     HomeComponent

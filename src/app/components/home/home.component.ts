@@ -19,6 +19,15 @@ declare let L;
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+    lat: number = -5.825891;
+    lng: number = -35.209701;
+
+    lat1: number = -5.911850;
+    lng1: number = -35.270668;
+    zoom: number = 10;
+
+
     public servicoList;
     public socialList;
     public blogList;
