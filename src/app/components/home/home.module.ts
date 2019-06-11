@@ -25,7 +25,7 @@ const homeRoutes: Routes = [
       homeRoutes,
     ),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDsyaom16QocCUTnqUbC84R9Q7H-baGMrI'
+      apiKey: ''
     })
   ],
   declarations: [
