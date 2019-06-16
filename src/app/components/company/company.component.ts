@@ -25,22 +25,17 @@ export class CompanyComponent implements OnInit {
             if (res) {
                 this.pageCompany = res;
                 this.pageCompany.content.rendered = this.sanitizer.bypassSecurityTrustHtml(this.pageCompany.content.rendered);
-            }
-            setTimeout(() => {
                 this.isLoading = false;
-            }, 200);
-            this.updateGallery();
+                setTimeout(() => {
+                    $('.blocks-gallery-item figure a').attr('rel', 'galeria');
+                    $('.blocks-gallery-item figure  a').fancybox();
+
+                }, 100);
+            }
         });
     }
 
     getFeaturedImage() {
         return this.pageCompany['_embedded'] ? this.pageCompany['_embedded']['wp:featuredmedia'][0]['source_url'] : 'assets/img/no-img.jpg';
-    }
-
-    updateGallery() {
-        setTimeout(() => {
-            $('.blocks-gallery-item figure a').attr('rel', 'galeria');
-            $('.blocks-gallery-item figure  a').fancybox();
-        }, 100);
     }
 }

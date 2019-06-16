@@ -28,6 +28,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/fancybox/dist/css/jquery.fancybox.css",
               "node_modules/leaflet/dist/leaflet.css",
               "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
               "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
@@ -38,7 +39,7 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+              "node_modules/fancybox/dist/js/jquery.fancybox.js",
               "node_modules/owl.carousel/dist/owl.carousel.min.js"
             ]
           },
