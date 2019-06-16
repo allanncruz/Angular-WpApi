@@ -30,6 +30,11 @@ const appRoutes: Routes = [
     loadChildren: './components/services/services.module#ServicesModule',
     runGuardsAndResolvers: 'always'
   },
+  {
+    path: 'contato',
+    loadChildren: './components/contact/contact.module#ContactModule',
+    runGuardsAndResolvers: 'always'
+  },
 ];
 
 @NgModule({

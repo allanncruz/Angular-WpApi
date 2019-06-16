@@ -1,0 +1,48 @@
+<div *ngIf="!isLoading">
+    <div class="content-area">
+        <div class="container">
+            <h1 class="title text-center" [innerHTML]='pageContact?.title.rendered'></h1>
+            <div [innerHTML]='pageContact?.content.rendered'></div>
+
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="form">
+
+                        <form [formGroup]="contactForm" (ngSubmit)="sendForm()">
+                            <div class="form-group">
+                                <label for="Name">Nome</label>
+                                <input type="text" class="form-control" id="Name" formControlName="nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="Email">E-mail</label>
+                                <input type="email" class="form-control" id="Email" formControlName="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="Telefone">Telefone</label>
+                                <input type="tel" pattern="[0-9]{10}" class="form-control" id="Telefone" formControlName="telefone" placeholder="Telefone/Celular ex: 8432721205">
+                            </div>
+                            <div class="form-group">
+                                <label for="Mensagem">Sua Mensagem</label>
+                                <textarea class="form-control" id="Mensagem" formControlName="mensagem" rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">ENVIAR</button>
+                        </form>
+
+                        <div class="modal fade" id="modal-mensagem">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body text-center">
+                                        <h4>Mensagem enviada com sucesso!</h4>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
