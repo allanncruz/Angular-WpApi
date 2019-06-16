@@ -109,14 +109,15 @@
                 <agm-map
                         [latitude]="lat"
                         [zoom]="zoom"
-                        [longitude]="lng">
+                        [longitude]="lng"
+                        [scrollwheel]="false">
 
                     <agm-marker
                             [iconUrl]="'/assets/img/map-marker.png'"
                             [latitude]="lat"
                             [longitude]="lng">
                         <agm-info-window [disableAutoPan]="true">
-                            Projetos em <strong>Natal RN</strong>
+                            Primeiro <strong>Endereço</strong>
                         </agm-info-window>
                     </agm-marker>
 
@@ -125,7 +126,7 @@
                             [latitude]="lat1"
                             [longitude]="lng1">
                         <agm-info-window [disableAutoPan]="true">
-                            Hi, this is the content of the <strong>info window</strong>
+                            Segundo <strong>Endereço</strong>
                         </agm-info-window>
                     </agm-marker>
                 </agm-map>
