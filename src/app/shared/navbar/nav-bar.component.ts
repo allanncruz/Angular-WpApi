@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from "@angular/router";
 
 declare var $;
 
@@ -8,6 +9,25 @@ declare var $;
     styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
+    menuItems: any[] = [];
+
+    currentUrl: string;
+
+    constructor(private router: Router) {
+
+        this.currentUrl = "";
+    }
+
+    toggleLink(route: string, isSubMenu: boolean) {
+        $('#navbarSupportedContent').removeClass('show');
+        if (isSubMenu) {
+            this.flagSubMenu = !this.flagSubMenu;
+        }
+        this.router.navigate([route]);
+    }
+    flagSubMenu = true;
+
+
 
     ngOnInit() {
         setTimeout(() => {
@@ -36,6 +56,13 @@ export class NavBarComponent implements OnInit {
 
         $(window).scroll(function () {
             $('nav').toggleClass('scrolled animated fadeInDown', $(this).scrollTop() > 200);
+        });
+
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                this.currentUrl = this.router.url.split('/').pop();
+                console.log('this.currentUrl', this.currentUrl);
+            }
         });
     }
 

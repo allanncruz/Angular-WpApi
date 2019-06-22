@@ -13,19 +13,39 @@
             </button>
             <ul class="navbar-nav justify-content-end text-uppercase font-weight-bold">
                 <li class="nav-item">
-                    <a class="nav-link" href="/home">Home</a>
+                    <a class="nav-link"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact:true}"
+                       (click)="toggleLink('/home', true)"
+                       routerLink="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/empresa">A Empresa</a>
+                    <a class="nav-link"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact:true}"
+                       (click)="toggleLink('/empresa', true)"
+                       routerLink="/empresa">A Empresa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/servicos">Serviços</a>
+                    <a class="nav-link"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact:true}"
+                       (click)="toggleLink('/servicos', true)"
+                       routerLink="/servicos">Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/blog">Blog</a>
+                    <a class="nav-link"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact:true}"
+                       (click)="toggleLink('/blog', true)"
+                       routerLink="/blog">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contato">Contato</a>
+                    <a class="nav-link"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions]="{exact:true}"
+                       (click)="toggleLink('/contato', true)"
+                       routerLink="/contato">Contato</a>
                 </li>
             </ul>
         </div>
