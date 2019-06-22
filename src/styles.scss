@@ -159,3 +159,20 @@ body {
      }
    }
  }
+
+//Forms
+form{
+  .form-group{
+    label{
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .form-control{
+      height: 50px !important;
+      border-radius: 0;
+    }
+    textarea.form-control{
+      height: 190px !important;
+    }
+  }
+}
