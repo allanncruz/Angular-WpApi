@@ -24,8 +24,8 @@ function sendWithPhpMailer($subject, $body, $emailAttachment, $reply) {
 //     $smtpUser = wp_strip_all_tags( trim( get_option( 'smtp_user' ) ) );
 //     $smtpPass = wp_strip_all_tags( trim( get_option( 'smtp_pass' ) ) );
 //     $mailTo = wp_strip_all_tags( trim( get_option( 'mail_to' ) ) );
-    $mailFrom = 'contato@meggasolar.com.br';
-    $mailTo =['eduardo@meggasolar.com.br','max@meggasolar.com.br','thaiza@meggasolar.com.br','administrativo@meggasolar.com.br', $reply];
+    $mailFrom = 'contato@email.com';
+    $mailTo =['contato@email.com'];
 	$mailInterativa = [''];
     $send = false;
     $mail = new PHPMailer;
@@ -139,16 +139,6 @@ function sendContactMail(WP_REST_Request $request) {
     $contactName = wp_strip_all_tags( trim( $parameters['nome'] ) );
     $contactEmail = wp_strip_all_tags( trim( $parameters['email'] ) );
     $contactPhone = wp_strip_all_tags( trim( $parameters['telefone'] ) );
-    $contactUnidade = wp_strip_all_tags( trim( $parameters['unidade'] ) );
-	$contactCpf = wp_strip_all_tags( trim( $parameters['cpf'] ) );
-	$contactEstadoCivil = wp_strip_all_tags( trim( $parameters['estado-civil'] ) );
-	$contactCidadeAtuacao = wp_strip_all_tags( trim( $parameters['cidade-atuacao'] ) );
-	$contactCidadeInvestimento = wp_strip_all_tags( trim( $parameters['investimento'] ) );
-	
-	$contactLojaLicenciada = wp_strip_all_tags( trim( $parameters['loja-licenciada'] ) );
-	$contactComoConheceu = wp_strip_all_tags( trim( $parameters['como-conheceu'] ) );
-	$contactRamo = wp_strip_all_tags( trim( $parameters['ramo'] ) );
-	$contactRenda = wp_strip_all_tags( trim( $parameters['renda'] ) );
 	
     $contactMessage = wp_strip_all_tags( trim( $parameters['mensagem'] ) );
     if ( !empty($contactName) && !empty($contactEmail) && !empty($contactPhone) ) {
@@ -161,32 +151,9 @@ function sendContactMail(WP_REST_Request $request) {
 		
 		$subject = "(Novo contato via $blogname) $contactName <$contactEmail>";
 		if ($emailType == 'onde_atuamos') {
-			$subject = "(Novo contato via $blogname - Onde Atuamos) $contactName <$contactEmail>";
-			$body .= "<p><b>Unidade:</b> $contactUnidade</p>";
-			$body .= "<p><b>Mensagem:</b> $contactMessage</p>"; 
-		}
-		if ($emailType == 'contato') {
 			$subject = "(Novo contato via $blogname - Contato) $contactName <$contactEmail>";
-			$body .= "<p><b>Unidade:</b> $contactUnidade</p>";
 			$body .= "<p><b>Mensagem:</b> $contactMessage</p>"; 
-		}
-		if ($emailType == 'orcamento') {
-			$subject = "(Novo contato via $blogname - Orcamento) $contactName <$contactEmail>";
-			$body .= "<p><b>Conta de energia:</b> $contactContaEnergia</p>"; 
-		}
-		
-		if ($emailType == 'parceiros') {
-			$subject = "(Novo contato via $blogname - Parceiros) $contactName <$contactEmail>";
-			$body .= "<p><b>Cpf:</b> $contactCpf</p>";
-			$body .= "<p><b>Estado Civil:</b> $contactEstadoCivil</p>";
-			$body .= "<p><b>Cidade onde pretende atuar:</b> $contactCidadeAtuacao</p>";
-			$body .= "<p><b>Capital de Investimento:</b> $contactCidadeInvestimento</p>";
-			$body .= "<p><b>Quando pretende abrir a loja licenciada:</b> $contactLojaLicenciada</p>";
-			$body .= "<p><b>Conheceu a empresa:</b> $contactComoConheceu</p>";
-			$body .= "<p><b>Ramo:</b> $contactRamo</p>";
-			$body .= "<p><b>Renda:</b> $contactRenda</p>";
-		}
-		
+		}	
              
 		
 		$sendAction = sendWithPhpMailer( $subject, $body, $emailAttachment, $contactEmail );
