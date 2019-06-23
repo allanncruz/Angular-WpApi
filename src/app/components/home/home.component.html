@@ -73,66 +73,33 @@
 <!--Contato-->
 <div class="contato" id="contato">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 py-5">
-                <h1 class="display-4 text-uppercase text-red">Contato</h1>
-
-                <form action="mailto:ormazabalnascimento@gmail.com" method="post" enctype="text/plain">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="inputNome" class="font-weight-bold">Nome</label>
-                                <input type="text" class="form-control" id="inputNome">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="inputTelefone" class="font-weight-bold">Telefone</label>
-                                <input type="number" class="form-control" id="inputTelefone">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputEmail" class="font-weight-bold">E-mail</label>
-                        <input type="email" class="form-control" id="inputEmail">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputMsg" class="font-weight-bold">Mensagem</label>
-                        <textarea class="form-control" id="inputMsg" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-enviar bg-red text-light font-weight-bold btn-lg rounded-0">
-                        Enviar Mensagem
-                    </button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <agm-map
-                        [latitude]="lat"
-                        [zoom]="zoom"
-                        [longitude]="lng"
-                        [scrollwheel]="false">
-
-                    <agm-marker
-                            [iconUrl]="'/assets/img/map-marker.png'"
-                            [latitude]="lat"
-                            [longitude]="lng">
-                        <agm-info-window [disableAutoPan]="true">
-                            Primeiro <strong>Endereço</strong>
-                        </agm-info-window>
-                    </agm-marker>
-
-                    <agm-marker
-                            [iconUrl]="'/assets/img/map-marker.png'"
-                            [latitude]="lat1"
-                            [longitude]="lng1">
-                        <agm-info-window [disableAutoPan]="true">
-                            Segundo <strong>Endereço</strong>
-                        </agm-info-window>
-                    </agm-marker>
-                </agm-map>
-            </div>
+        <div class="col-md-6 py-5">
+            <h1 class="display-4 text-uppercase text-red">Localização</h1>
         </div>
     </div>
+    <agm-map
+            [latitude]="lat"
+            [zoom]="zoom"
+            [longitude]="lng"
+            [scrollwheel]="false">
+
+        <agm-marker
+                [iconUrl]="'/assets/img/map-marker.png'"
+                [latitude]="lat"
+                [longitude]="lng">
+            <agm-info-window [disableAutoPan]="true">
+                Primeiro <strong>Endereço</strong>
+            </agm-info-window>
+        </agm-marker>
+
+        <agm-marker
+                [iconUrl]="'/assets/img/map-marker.png'"
+                [latitude]="lat1"
+                [longitude]="lng1">
+            <agm-info-window [disableAutoPan]="true">
+                Segundo <strong>Endereço</strong>
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
 </div>
 
