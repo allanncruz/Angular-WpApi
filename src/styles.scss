@@ -76,13 +76,19 @@ body {
 
 //Lista padrão de cards
 .cards-item{
+  cursor: pointer;
+  .cards-image{
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+  }
   .cards-legend {
     height: 100px;
-    color: $white;
     text-align: center;
+    padding: 0 1rem;
+    @include flex-center;
   }
 }
-
 //Servicos
 .services {
   background-image: url("/assets/img/bg-secundary.png");

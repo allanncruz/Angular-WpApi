@@ -7,12 +7,12 @@
 
             <div class="row">
                 <div class="col-md-4" *ngFor="let blg of blogPosts" [routerLink]="'/blog/' + blg.id">
-                    <div class="card">
-                        <img class="card-img-top"
+                    <div class="cards-item my-3">
+                        <img class="cards-image"
                              [src]="getInterviewsFeaturedImage(blg)"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text" [innerHTML]="blg.title.rendered"></p>
+                             alt="{{blg.title.rendered}}">
+                        <div class="cards-legend">
+                            <h5 class="card-text" [innerHTML]="blg.title.rendered"></h5>
                         </div>
                     </div>
                 </div>

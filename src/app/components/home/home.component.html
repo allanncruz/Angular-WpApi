@@ -53,14 +53,15 @@
     <div class="container">
         <h1 class="news title">Novidades</h1>
         <div id="carousel-blog" class="carousel-inner owl-carousel">
-            <div class="cards-item py-2"
+            <div class="cards-item mx-2"
                  *ngFor="let item of blogList; let i = index">
 
-                <img class="px-3"
-                     [src]="getFeaturedImage(item)" />
+                <img class="cards-image"
+                     [src]="getFeaturedImage(item)"
+                     alt="{{item.title.rendered}}" />
 
                 <div class="cards-legend">
-                    <h4>{{item.title.rendered}}</h4>
+                    <h5>{{item.title.rendered}}</h5>
                     <button type="button" class="btn btn-primary btn-sm"
                             [routerLink]="'/novidades/' + item.id">Ver mais</button>
                 </div>
