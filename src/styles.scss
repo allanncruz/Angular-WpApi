@@ -98,6 +98,20 @@ body {
   .services-title{
     color: $white;
   }
+  .carousel-inner{
+    .owl-nav {
+      button{
+        span{
+          color: $white;
+        }
+        &.disabled{
+          span{
+            color: $gray-500;
+          }
+        }
+      }
+    }
+  }
 }
 //Novidades
 .news {
@@ -139,16 +153,19 @@ body {
 //Lista padrão de cards
 .cards-item{
   cursor: pointer;
+  text-align: center;
   .cards-image{
     width: 100%;
     height: 190px;
     object-fit: cover;
   }
   .cards-legend {
-    height: 100px;
-    text-align: center;
-    padding: 0 1rem;
-    @include flex-center;
+    .card-content{
+      height: 100px;
+      text-align: center;
+      padding: 0 1rem;
+      @include flex-center;
+    }
   }
 }
 
