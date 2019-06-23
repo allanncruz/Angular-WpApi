@@ -72,6 +72,68 @@ body {
       font-size: 20px;
     }
   }
+  .carousel-inner{
+    .owl-nav {
+      font-size: 4rem;
+      left: 5%;
+      width: 90%;
+      button{
+        span{
+          color: $white;
+        }
+        &.disabled{
+          span{
+            color: $gray-500;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Servicos
+.services {
+  overflow: hidden;
+  background-image: url("/assets/img/bg-secundary.png");
+  .services-title{
+    color: $white;
+  }
+}
+//Novidades
+.news {
+  overflow: hidden;
+  background-image: url("/assets/img/bg-primary.png");
+  .news-title{
+    color: $dark;
+  }
+}
+
+
+
+//Configuração padrão para Owl carousel
+.carousel-inner{
+  overflow: inherit;
+  .owl-nav {
+    position: absolute;
+    font-size: 3rem;
+    left: -2.5%;
+    top: 0;
+    width: 105%;
+    height: 100%;
+    @include flex-center-between;
+
+    button{
+      outline: none;
+      span{
+        color: $primary-color;
+      }
+      &.disabled{
+        span{
+          color: $dark;
+        }
+      }
+    }
+  }
 }
 
 //Lista padrão de cards
@@ -87,20 +149,6 @@ body {
     text-align: center;
     padding: 0 1rem;
     @include flex-center;
-  }
-}
-//Servicos
-.services {
-  background-image: url("/assets/img/bg-secundary.png");
-  .services-title{
-    color: $white;
-  }
-}
-//Novidades
-.news {
-  background-image: url("/assets/img/bg-primary.png");
-  .news-title{
-    color: $dark;
   }
 }
 

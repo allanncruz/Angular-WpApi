@@ -40,6 +40,11 @@ $theme-colors:(
   align-items: center;
   justify-content: flex-end;
 }
+@mixin flex-center-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 @mixin flex-center() {
   @include flex-column;
   align-items: center;
